@@ -1,0 +1,36 @@
+.form {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 72px 16px 16px;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.submit {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-family: inherit;
+  padding: 10px 8px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 8px;
+}
+
+.submitActive {
+  background-color: #5344F9;
+  color: white;
+}
