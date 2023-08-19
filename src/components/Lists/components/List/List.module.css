@@ -1,4 +1,10 @@
+.list {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
 .listHeader {
+  position: relative;
   display: flex;
   gap: 8px;
   padding: 16px;
@@ -7,17 +13,33 @@
   color: black;
   font-weight: 500;
   text-transform: capitalize;
-}
-
-.listHeaderActive {
-  background-color: var(--color-blue);
-  color: white;
-}
-
-.listHeaderActive > span {
-  color: white;
+  z-index: 2;
+  transition: all 0.1s ease-in-out;
 }
 
 .itemsCount {
   color: rgba(0, 0, 0, 0.4);
+  transition: color 0.1s ease-in-out;
+}
+
+.listBody {
+  padding: calc(16px + var(--border-radius) * 2) 16px 16px;
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: black;
+  transform: translateY(-100%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.listActive > .listHeader {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.listActive > .listHeader > .itemsCount {
+  color: white;
+}
+
+.listActive > .listBody {
+  transform: translateY(calc(var(--border-radius) * -2));
 }
