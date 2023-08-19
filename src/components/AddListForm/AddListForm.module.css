@@ -7,9 +7,11 @@
   padding: 16px 72px 16px 16px;
   background-color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-size: 16px;
   font-family: inherit;
+  font-weight: 500;
+  outline-color: var(--color-blue);
 }
 
 .input::placeholder {
@@ -21,16 +23,18 @@
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
+  padding: 10px 8px;
   font-size: 16px;
   font-family: inherit;
-  padding: 10px 8px;
+  font-weight: 500;
   background: transparent;
   color: rgba(0, 0, 0, 0.2);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
+  transition: all 0.15s ease-in-out;
 }
 
 .submitActive {
-  background-color: #5344F9;
+  background-color: var(--color-blue);
   color: white;
 }

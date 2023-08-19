@@ -1,12 +1,12 @@
-export interface Item {
+export interface IItem {
   id: String,
   title: String,
   checked: Boolean,
 };
 
-export interface List {
+export interface IList {
   id: String,
   title: String,
   expanded: Boolean,
-  items: Item[],
+  items: IItem[],
 };

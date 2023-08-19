@@ -2,19 +2,19 @@ import { useState } from 'react';
 import styles from './AddListForm.module.css';
 
 interface AddListFormProps {
-  addNewList: (v: String) => void,
+  addNewList: (newListTitle: String) => void,
 }
 
-export default ({ addNewList }: AddListFormProps) => {
+const AddListForm = ({ addNewList }: AddListFormProps) => {
   const [listName, setListName] = useState('');
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.trim() || e.target.value === '') {
       setListName(e.target.value);
     }
   };
 
-  const submitForm = (e) => {
+  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNewList(listName);
     setListName('');
@@ -38,3 +38,5 @@ export default ({ addNewList }: AddListFormProps) => {
     </form>
   );
 };
+
+export default AddListForm;

@@ -1,13 +1,16 @@
-import { List } from "@/model";
+import { IList } from "@/model";
+import List from "./components/List/List";
+import styles from './Lists.module.css';
 
 interface ListsProps {
-  lists: List[],
+  lists: IList[],
+  expandList: (listId: String) => void,
 }
 
-export default ({ lists }: ListsProps) => {
+export default ({ lists, expandList }: ListsProps) => {
   return (
-    <section>
-      {lists.map(list => <div>{list.title}</div>)}
+    <section className={`${styles.lists}`}>
+      {lists.map(list => <List list={list} expandList={expandList} />)}
     </section>
   );
 };

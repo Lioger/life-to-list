@@ -1,0 +1,23 @@
+.listHeader {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.listHeaderActive {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.listHeaderActive > span {
+  color: white;
+}
+
+.itemsCount {
+  color: rgba(0, 0, 0, 0.4);
+}

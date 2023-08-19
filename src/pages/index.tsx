@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import AddListForm from '@/components/AddListForm/AddListForm';
-import styles from '@/styles/Home.module.css';
-import { List } from '@/model';
 import Lists from '@/components/Lists/Lists';
+import { IList } from '@/model';
+import styles from '@/styles/Home.module.css';
 
 export default () => {
-  const [lists, setLists]: [l: List[], s: (v: any) => void] = useState([]);
+  const [lists, setLists]: [l: IList[], s: (v: any) => void] = useState([]);
 
   const addNewList = (listName: String) => {
     setLists((prev: any) => [{
@@ -15,6 +15,11 @@ export default () => {
       expanded: false,
       items: [],
     }, ...prev]);
+  };
+
+  const expandList = (listId: String) => {
+    setLists((prev: any) => prev.map((list: IList) =>
+      (list.id === listId ? { ...list, expanded: !list.expanded } : list)));
   };
 
   return (
@@ -28,7 +33,7 @@ export default () => {
       <main className={`${styles.main}`}>
         <h1 className={`${styles.title}`}>My Lists</h1>
         <AddListForm addNewList={addNewList} />
-        <Lists lists={lists} />
+        <Lists lists={lists} expandList={expandList} />
       </main>
     </>
   );
