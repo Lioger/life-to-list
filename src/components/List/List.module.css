@@ -80,13 +80,6 @@
   outline-color: var(--color-blue);
 }
 
-.addItemFormIcon {
-  border: none;
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-
 .addItemFormIconSubmit {
   background: url(/icons/add.svg) transparent no-repeat;
 }

@@ -50,3 +50,13 @@
 .itemTitleCrossLineVisible {
   left: 0;
 }
+
+.deleteItemButton {
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: url(/icons/trashcan.svg) #ff7484 no-repeat;
+  background-size: 18px 18px;
+  background-position: center;
+}

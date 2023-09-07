@@ -1,0 +1,7 @@
+.iconButton {
+  border: none;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: transparent;
+}

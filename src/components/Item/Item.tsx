@@ -1,15 +1,21 @@
 import { IItem } from "@/model";
+import globalComponentsStyles from '../../styles/components.module.css';
 import styles from './Item.module.css';
 
 interface ItemProps {
-  item: IItem,
   completeItem: (itemId: string, listId: string) => void,
+  deleteItem: (itemId: string, listId: string) => void,
+  item: IItem,
   listId: string,
 }
 
-export default ({ completeItem, item, listId }: ItemProps) => {
+export default ({ completeItem, deleteItem, item, listId }: ItemProps) => {
   const handleCheck = () => {
     completeItem(item.id, listId);
+  };
+
+  const handleDelete = () => {
+    deleteItem(item.id, listId);
   };
 
   return (
@@ -32,6 +38,11 @@ export default ({ completeItem, item, listId }: ItemProps) => {
         {item.title}
         <span className={`${styles.itemTitleCrossLine} ${item.checked ? styles.itemTitleCrossLineVisible : ''}`} />
       </label>
+      <button
+        name="Delete item"
+        className={`${globalComponentsStyles.iconButton} ${styles.deleteItemButton}`}
+        onClick={handleDelete}
+      />
     </li>
   );
 };

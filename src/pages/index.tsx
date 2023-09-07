@@ -38,6 +38,14 @@ export default () => {
       } : list));
   }
 
+  const deleteItem = (itemId: string, listId: string) => {
+    setLists((prev: any) => prev.map((list: IList) => list.id === listId ?
+      {
+        ...list,
+        items: list.items.filter((item: IItem) => item.id !== itemId),
+      } : list));
+  }
+
   return (
     <>
       <Head>
@@ -50,11 +58,12 @@ export default () => {
         <h1 className={`${styles.title}`}>Life-to-List</h1>
         <AddListForm addNewList={addNewList} />
         <Lists
-          lists={lists}
-          expandList={expandList}
           addNewItemToList={addNewItemToList}
           completeItem={completeItem}
-        />
+          deleteItem={deleteItem}
+          expandList={expandList}
+          lists={lists}
+          />
       </main>
     </>
   );

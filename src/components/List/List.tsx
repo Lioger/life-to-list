@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import Item from "../Item/Item";
 import { IList } from "@/model";
+import globalComponentsStyles from '../../styles/components.module.css';
 import styles from './List.module.css';
 
 interface ListProps {
-  list: IList,
-  expandList: (listId: String) => void,
   addNewItemToList: (itemName: String, listId: string) => void,
   completeItem: (itemId: string, listId: string) => void,
+  deleteItem: (itemId: string, listId: string) => void,
+  expandList: (listId: String) => void,
+  list: IList,
 }
 
-export default ({ completeItem, list, expandList, addNewItemToList }: ListProps) => {
+export default ({ addNewItemToList, completeItem, deleteItem, expandList, list }: ListProps) => {
   const [isAddItemFormActive, setIsAddItemFormActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listBodyRef = useRef<HTMLInputElement>(null);
@@ -51,13 +53,13 @@ export default ({ completeItem, list, expandList, addNewItemToList }: ListProps)
                 type="submit"
                 name="Add new item"
                 value=""
-                className={`${styles.addItemFormIcon} ${styles.addItemFormIconSubmit}`}
+                className={`${globalComponentsStyles.iconButton} ${styles.addItemFormIconSubmit}`}
               />
               <input
                 type="button"
                 name="Close new item form"
                 value=""
-                className={`${styles.addItemFormIcon} ${styles.addItemFormIconCancel}`}
+                className={`${globalComponentsStyles.iconButton} ${styles.addItemFormIconCancel}`}
                 onClick={() => setIsAddItemFormActive(false)}
               />
             </form>
@@ -68,7 +70,15 @@ export default ({ completeItem, list, expandList, addNewItemToList }: ListProps)
           )}
           {list.items.length > 0 && (
             <ul className={`${styles.itemsList}`}>
-              {list.items.map(item => <Item key={item.id} listId={list.id} item={item} completeItem={completeItem} />)}
+              {list.items.map(item => (
+                <Item
+                  key={item.id}
+                  completeItem={completeItem}
+                  deleteItem={deleteItem}
+                  item={item}
+                  listId={list.id}
+                />
+              ))}
             </ul>
           )}
         </div>
