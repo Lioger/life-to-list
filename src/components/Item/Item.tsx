@@ -9,7 +9,6 @@ interface ItemProps {
 
 export default ({ completeItem, item, listId }: ItemProps) => {
   const handleCheck = () => {
-    console.log('asdas');
     completeItem(item.id, listId);
   };
 
