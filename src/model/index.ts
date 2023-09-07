@@ -1,11 +1,11 @@
 export interface IItem {
-  id: String,
+  id: string,
   title: String,
-  checked: Boolean,
+  checked: boolean,
 };
 
 export interface IList {
-  id: String,
+  id: string,
   title: String,
   expanded: Boolean,
   items: IItem[],

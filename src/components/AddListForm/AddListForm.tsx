@@ -24,7 +24,7 @@ const AddListForm = ({ addNewList }: AddListFormProps) => {
     <form className={`${styles.form}`} onSubmit={submitForm}>
       <input
         type="text"
-        name="Title of your list"
+        name="New list title"
         placeholder="New list"
         value={listName}
         className={`${styles.input}`}
@@ -32,6 +32,7 @@ const AddListForm = ({ addNewList }: AddListFormProps) => {
       />
       <button
         type="submit"
+        name="Add new list"
         className={`${styles.submit} ${!!listName ? styles.submitActive : ''}`}
         disabled={!listName}
       >+ Add</button>

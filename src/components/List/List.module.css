@@ -1,0 +1,102 @@
+.list {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.listHeader {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  text-transform: capitalize;
+  z-index: 2;
+  transition: all 0.1s ease-in-out;
+}
+
+.itemsCount {
+  color: rgba(0, 0, 0, 0.4);
+  transition: color 0.1s ease-in-out;
+}
+
+.listBody {
+  border-radius: 0 0 8px 8px;
+  background-color: white;
+  color: black;
+  transition: all 0.4s ease-in-out;
+}
+
+.listBody::before {
+  display: block;
+  content: "";
+  width: 100%;
+  background-color: white;
+  height: var(--border-radius);
+  transform: translateY(-100%);
+}
+
+.listBodyPadding {
+  padding: 8px 8px 16px;
+}
+
+.openItemFormButton {
+  width: 100%;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  outline-color: var(--color-blue);
+  border: none;
+  padding: 2px 0 6px;
+}
+
+.listActive > .listHeader {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.listActive > .listHeader > .itemsCount {
+  color: white;
+}
+
+.addItemForm {
+  display: flex;
+  align-items: cnter;
+  gap: 4px;
+  width: 100%;
+}
+
+.addItemFormInput {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0 8px;
+  outline-color: var(--color-blue);
+}
+
+.addItemFormIcon {
+  border: none;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.addItemFormIconSubmit {
+  background: url(/icons/add.svg) transparent no-repeat;
+}
+
+.addItemFormIconCancel {
+  background: url(/icons/cross.svg) transparent no-repeat;
+}
+
+.itemsList {
+  display: grid;
+  grid-gap: 8px;
+  padding: 8px 8px 0;
+}

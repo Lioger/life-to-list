@@ -29,6 +29,7 @@
   font-weight: 500;
   background: transparent;
   color: rgba(0, 0, 0, 0.2);
+  outline-color: var(--color-blue);
   border: none;
   border-radius: var(--border-radius);
   transition: all 0.15s ease-in-out;
