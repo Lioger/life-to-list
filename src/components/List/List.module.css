@@ -6,6 +6,7 @@
 .listHeader {
   position: relative;
   display: flex;
+  align-items: center;
   gap: 8px;
   padding: 16px;
   border-radius: var(--border-radius);
@@ -20,6 +21,13 @@
 .itemsCount {
   color: rgba(0, 0, 0, 0.4);
   transition: color 0.1s ease-in-out;
+}
+
+.listOpenMenuButton {
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  transition: all 0.1s ease-in-out;
 }
 
 .listBody {

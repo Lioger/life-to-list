@@ -1,5 +1,5 @@
 import { IItem } from "@/model";
-import globalComponentsStyles from '../../styles/components.module.css';
+import globalComponentsStyles from '@/styles/components.module.css';
 import styles from './Item.module.css';
 
 interface ItemProps {
