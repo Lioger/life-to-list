@@ -11,7 +11,14 @@ interface ListMenuModalProps {
   sort: string,
 }
 
-export default ({ closeListMenu, deleteList, filter, handleChangeParam, openedListMenu, sort }: ListMenuModalProps) => {
+const ListMenuModal = ({
+  closeListMenu,
+  deleteList,
+  filter,
+  handleChangeParam,
+  openedListMenu,
+  sort,
+}: ListMenuModalProps) => {
   const handleDeleteList = () => {
     if (openedListMenu) deleteList(openedListMenu.id);
   };
@@ -66,3 +73,5 @@ export default ({ closeListMenu, deleteList, filter, handleChangeParam, openedLi
     </>
   );
 };
+
+export default ListMenuModal;

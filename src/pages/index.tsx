@@ -6,7 +6,7 @@ import ListMenuModal from '@/components/ListMenuModal/ListMenuModal';
 import { IItem, IList } from '@/model';
 import styles from '@/styles/Home.module.css';
 
-export default () => {
+const Main = () => {
   const [lists, setLists]: [l: IList[], s: (v: any) => void] = useState([]);
   const [openedListMenu, setOpenedListMenu]: [l: IList | null, s: (v: any) => void] = useState(null);
   const [filter, setFilter] = useState('default');
@@ -107,3 +107,5 @@ export default () => {
     </>
   );
 };
+
+export default Main;

@@ -15,7 +15,7 @@ interface ListProps {
   sort: string,
 }
 
-export default ({
+const List = ({
   addNewItemToList,
   completeItem,
   deleteItem,
@@ -146,3 +146,5 @@ export default ({
     </div>
   );
 };
+
+export default List;

@@ -9,7 +9,7 @@ interface ItemProps {
   listId: string,
 }
 
-export default ({ completeItem, deleteItem, item, listId }: ItemProps) => {
+const Item = ({ completeItem, deleteItem, item, listId }: ItemProps) => {
   const handleCheck = () => {
     completeItem(item.id, listId);
   };
@@ -46,3 +46,5 @@ export default ({ completeItem, deleteItem, item, listId }: ItemProps) => {
     </li>
   );
 };
+
+export default Item;

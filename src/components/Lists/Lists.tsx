@@ -13,7 +13,7 @@ interface ListsProps {
   sort: string,
 }
 
-export default ({
+const Lists = ({
   addNewItemToList,
   completeItem,
   deleteItem,
@@ -39,3 +39,5 @@ export default ({
     ))}
   </section>
 );
+
+export default Lists;
