@@ -16,7 +16,7 @@ export default function Document() {
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
         <meta name="twitter:image" content={metadata.image} />
-        <link rel="icon" href="/icons/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={metadata.link} />
         <title>Life-to-List</title>
       </Head>
