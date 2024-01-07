@@ -99,15 +99,6 @@
   background: url(/icons/add.svg) transparent no-repeat;
 }
 
-.addItemFormIconCancel {
-  border: none;
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  background: transparent;
-  background: url(/icons/cross.svg) transparent no-repeat;
-}
-
 .itemsList {
   display: grid;
   grid-gap: 8px;

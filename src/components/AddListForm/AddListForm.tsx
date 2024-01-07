@@ -16,6 +16,7 @@ const AddListForm = ({ addNewList }: AddListFormProps) => {
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!listName.trim()) return;
     addNewList(listName);
     setListName('');
   };

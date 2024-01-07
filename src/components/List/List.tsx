@@ -30,7 +30,7 @@ const List = ({
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!inputRef.current) return;
+    if (!inputRef.current || !inputRef.current.value.trim()) return;
     addNewItemToList(inputRef.current.value, list.id);
     inputRef.current.value = '';
   };
@@ -69,6 +69,11 @@ const List = ({
     return filteredItems;
   };
 
+  const onListTitleClick = () => {
+    if (!list.expanded && isAddItemFormActive) setIsAddItemFormActive(false);
+    expandList(list.id);
+  };
+
   useEffect(() => {
     if (!listBodyRef.current) return;
     listBodyRef.current.style.maxHeight = `${list.expanded ? listBodyRef.current.scrollHeight + 16 : 0}px`;
@@ -82,7 +87,7 @@ const List = ({
 
   return (
     <div className={`${styles.list} ${list.expanded ? styles.listActive : ''}`}>
-      <h3 className={`${styles.listHeader}`} onClick={() => expandList(list.id)}>
+      <h3 className={`${styles.listHeader}`} onClick={onListTitleClick}>
         {list.title}<span className={`${styles.itemsCount}`}>{list.items.length}</span>
         <button
           className={`${styles.listOpenMenuButton}`}
@@ -113,13 +118,6 @@ const List = ({
                 name="Add new item"
                 value=""
                 className={`${styles.addItemFormIconSubmit}`}
-              />
-              <input
-                type="button"
-                name="Close new item form"
-                value=""
-                className={`${styles.addItemFormIconCancel}`}
-                onClick={() => setIsAddItemFormActive(false)}
               />
             </form>
           ) : (
