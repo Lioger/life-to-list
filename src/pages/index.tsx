@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
+import type { Metadata } from 'next';
 import AddListForm from '@/components/AddListForm/AddListForm';
 import Lists from '@/components/Lists/Lists';
 import ListMenuModal from '@/components/ListMenuModal/ListMenuModal';
 import { lsGetItem, lsSetItem } from '@/helpers/localStorage';
 import { IItem, IList } from '@/model';
-import { metadata } from '@/constants';
 import styles from '@/styles/Home.module.css';
+
+export const metadata: Metadata = {
+  title: 'Life-to-List',
+  description: "Create lists for any life situation you're in.",
+  creator: 'Nikita Stepanov',
+  publisher: 'Nikita Stepanov',
+  metadataBase: new URL('http://life-to-list.vercel.app'),
+  openGraph: {
+    images: '/app.png',
+  },
+};
 
 const Main = () => {
   const [lists, setLists]: [l: IList[], s: (v: any) => void] = useState(lsGetItem('lists') || []);
@@ -81,46 +91,28 @@ const Main = () => {
   }, [lists]);
 
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="title" content={metadata.title} />
-        <meta name="description" content={metadata.description} />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:type" content="page" />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.image} />
-        <meta property="og:url" content={metadata.link} />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={metadata.image} />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href={metadata.link} />
-        <title>Life-to-List</title>
-      </Head>
-      <main className={`${styles.main}`}>
-        <h1 className={`${styles.title}`}>Life-to-List</h1>
-        <AddListForm addNewList={addNewList} />
-        <Lists
-          addNewItemToList={addNewItemToList}
-          completeItem={completeItem}
-          deleteItem={deleteItem}
-          expandList={expandList}
+    <main className={`${styles.main}`}>
+      <h1 className={`${styles.title}`}>Life-to-List</h1>
+      <AddListForm addNewList={addNewList} />
+      <Lists
+        addNewItemToList={addNewItemToList}
+        completeItem={completeItem}
+        deleteItem={deleteItem}
+        expandList={expandList}
+        filter={filter}
+        lists={lists}
+        openListMenu={openListMenu}
+        sort={sort}
+        />
+        <ListMenuModal
+          deleteList={deleteList}
           filter={filter}
-          lists={lists}
-          openListMenu={openListMenu}
+          handleChangeParam={handleChangeParam}
+          openedListMenu={openedListMenu}
+          closeListMenu={closeListMenu}
           sort={sort}
-          />
-          <ListMenuModal
-            deleteList={deleteList}
-            filter={filter}
-            handleChangeParam={handleChangeParam}
-            openedListMenu={openedListMenu}
-            closeListMenu={closeListMenu}
-            sort={sort}
-          />
-      </main>
-    </>
+        />
+    </main>
   );
 };
 

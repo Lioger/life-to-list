@@ -33,10 +33,3 @@ export const sortOptions = [
     value: 'completed',
   },
 ];
-
-export const metadata = {
-  title: 'Life-to-List',
-  description: "Create lists for any life situation you're in.",
-  link: 'http://life-to-list.vercel.app/',
-  image: '/app.png',
-};
