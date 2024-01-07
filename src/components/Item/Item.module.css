@@ -30,7 +30,6 @@
 
 .itemTitle {
   position: relative;
-  text-transform: capitalize;
   overflow: hidden;
   font-weight: 500;
 }

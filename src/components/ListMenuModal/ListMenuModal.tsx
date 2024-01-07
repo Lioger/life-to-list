@@ -1,5 +1,5 @@
 import { IList } from '@/model';
-import { filterOptions, sortOptions } from './constants';
+import { filterOptions, sortOptions } from '@/constants';
 import styles from './ListMenuModal.module.css';
 
 interface ListMenuModalProps {

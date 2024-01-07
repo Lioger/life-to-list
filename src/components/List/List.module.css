@@ -13,7 +13,6 @@
   background-color: white;
   color: black;
   font-weight: 500;
-  text-transform: capitalize;
   z-index: 2;
   transition: all 0.1s ease-in-out;
 }
