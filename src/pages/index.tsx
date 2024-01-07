@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import AddListForm from '@/components/AddListForm/AddListForm';
 import Lists from '@/components/Lists/Lists';
 import ListMenuModal from '@/components/ListMenuModal/ListMenuModal';
+import { lsGetItem, lsSetItem } from '@/helpers/localStorage';
 import { IItem, IList } from '@/model';
+import { metadata } from '@/constants';
 import styles from '@/styles/Home.module.css';
 
 const Main = () => {
-  const [lists, setLists]: [l: IList[], s: (v: any) => void] = useState([]);
+  const [lists, setLists]: [l: IList[], s: (v: any) => void] = useState(lsGetItem('lists') || []);
   const [openedListMenu, setOpenedListMenu]: [l: IList | null, s: (v: any) => void] = useState(null);
   const [filter, setFilter] = useState('default');
   const [sort, setSort] = useState('default');
@@ -73,29 +76,51 @@ const Main = () => {
     }
   };
 
+  useEffect(() => {
+    lsSetItem('lists', lists);
+  }, [lists]);
+
   return (
-    <main className={`${styles.main}`}>
-      <h1 className={`${styles.title}`}>Life-to-List</h1>
-      <AddListForm addNewList={addNewList} />
-      <Lists
-        addNewItemToList={addNewItemToList}
-        completeItem={completeItem}
-        deleteItem={deleteItem}
-        expandList={expandList}
-        filter={filter}
-        lists={lists}
-        openListMenu={openListMenu}
-        sort={sort}
-        />
-        <ListMenuModal
-          deleteList={deleteList}
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="title" content={metadata.title} />
+        <meta name="description" content={metadata.description} />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:type" content="page" />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.image} />
+        <meta property="og:url" content={metadata.link} />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content={metadata.image} />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={metadata.link} />
+        <title>Life-to-List</title>
+      </Head>
+      <main className={`${styles.main}`}>
+        <h1 className={`${styles.title}`}>Life-to-List</h1>
+        <AddListForm addNewList={addNewList} />
+        <Lists
+          addNewItemToList={addNewItemToList}
+          completeItem={completeItem}
+          deleteItem={deleteItem}
+          expandList={expandList}
           filter={filter}
-          handleChangeParam={handleChangeParam}
-          openedListMenu={openedListMenu}
-          closeListMenu={closeListMenu}
+          lists={lists}
+          openListMenu={openListMenu}
           sort={sort}
-        />
-    </main>
+          />
+          <ListMenuModal
+            deleteList={deleteList}
+            filter={filter}
+            handleChangeParam={handleChangeParam}
+            openedListMenu={openedListMenu}
+            closeListMenu={closeListMenu}
+            sort={sort}
+          />
+      </main>
+    </>
   );
 };
 
