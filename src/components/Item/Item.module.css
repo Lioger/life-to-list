@@ -51,9 +51,11 @@
 }
 
 .deleteItemButton {
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
   margin-left: auto;
+  border: none;
   border-radius: 50%;
   background: url(/icons/trashcan.svg) var(--color-red) no-repeat;
   background-size: 16px 16px;

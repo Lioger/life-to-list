@@ -1,5 +1,4 @@
 import { IItem } from "@/model";
-import globalComponentsStyles from '@/styles/components.module.css';
 import styles from './Item.module.css';
 
 interface ItemProps {
@@ -40,7 +39,7 @@ const Item = ({ completeItem, deleteItem, item, listId }: ItemProps) => {
       </label>
       <button
         name="Delete item"
-        className={`${globalComponentsStyles.iconButton} ${styles.deleteItemButton}`}
+        className={`${styles.deleteItemButton}`}
         onClick={handleDelete}
       />
     </li>

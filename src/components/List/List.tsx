@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Item from "../Item/Item";
 import { IItem, IList } from "@/model";
-import globalComponentsStyles from '@/styles/components.module.css';
 import styles from './List.module.css';
 
 interface ListProps {
@@ -86,7 +85,7 @@ const List = ({
       <h3 className={`${styles.listHeader}`} onClick={() => expandList(list.id)}>
         {list.title}<span className={`${styles.itemsCount}`}>{list.items.length}</span>
         <button
-          className={`${globalComponentsStyles.iconButton} ${styles.listOpenMenuButton}`}
+          className={`${styles.listOpenMenuButton}`}
           onClick={handleToggleListMenu}
           name="Open list menu"
         >
@@ -113,13 +112,13 @@ const List = ({
                 type="submit"
                 name="Add new item"
                 value=""
-                className={`${globalComponentsStyles.iconButton} ${styles.addItemFormIconSubmit}`}
+                className={`${styles.addItemFormIconSubmit}`}
               />
               <input
                 type="button"
                 name="Close new item form"
                 value=""
-                className={`${globalComponentsStyles.iconButton} ${styles.addItemFormIconCancel}`}
+                className={`${styles.addItemFormIconCancel}`}
                 onClick={() => setIsAddItemFormActive(false)}
               />
             </form>

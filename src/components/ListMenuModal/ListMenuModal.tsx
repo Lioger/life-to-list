@@ -27,24 +27,25 @@ const ListMenuModal = ({
     <>
       <div className={`${styles.modalUnderlay} ${openedListMenu ? styles.modalUnderlayOpened : ''}`} onClick={closeListMenu} />
       <div className={`${styles.listMenu} ${openedListMenu ? styles.listMenuOpened : ''}`}>
-        <div>
-          <h3 className={`${styles.listMenuTitle}`}>{openedListMenu?.title} Menu</h3>
-          <h4 className={`${styles.listMenuGroupTitle}`}>Filtering</h4>
-          <div className={`${styles.listMenuOptionsGroup}`}>
-            {filterOptions.map(filterOp => (
-              <button
-                key={filterOp.value}
-                className={`${styles.listMenuButton} ${styles.listMenuButtonOptions} ${filter === filterOp.value ?
-                  styles.listMenuButtonOptionsActive : ''}`}
-                name={filterOp.name}
-                data-type="filter"
-                data-value={filterOp.value}
-                onClick={handleChangeParam}
-              >
-                {filterOp.title}
-              </button>
-            ))}
-          </div>
+        <h3 className={`${styles.listMenuTitle}`}>
+          {openedListMenu?.title} Menu
+          <button className={`${styles.listMenuClose}`} onClick={closeListMenu} />
+        </h3>
+        <h4 className={`${styles.listMenuGroupTitle}`}>Filtering</h4>
+        <div className={`${styles.listMenuOptionsGroup}`}>
+          {filterOptions.map(filterOp => (
+            <button
+              key={filterOp.value}
+              className={`${styles.listMenuButton} ${styles.listMenuButtonOptions} ${filter === filterOp.value ?
+                styles.listMenuButtonOptionsActive : ''}`}
+              name={filterOp.name}
+              data-type="filter"
+              data-value={filterOp.value}
+              onClick={handleChangeParam}
+            >
+              {filterOp.title}
+            </button>
+          ))}
         </div>
         <h4 className={`${styles.listMenuGroupTitle}`}>Sorting</h4>
         <div className={`${styles.listMenuOptionsGroup}`}>

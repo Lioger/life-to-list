@@ -31,12 +31,25 @@
   z-index: 101;
 }
 
+.listMenuClose {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: url(/icons/close.svg);
+  background-size: contain;
+}
+
 .listMenuOpened {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
 
 .listMenuTitle {
+  position: relative;
   text-align: center;
 }
 

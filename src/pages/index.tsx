@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Metadata } from 'next';
+import Head from 'next/head';
 import AddListForm from '@/components/AddListForm/AddListForm';
 import Lists from '@/components/Lists/Lists';
 import ListMenuModal from '@/components/ListMenuModal/ListMenuModal';
@@ -91,28 +92,35 @@ const Main = () => {
   }, [lists]);
 
   return (
-    <main className={`${styles.main}`}>
-      <h1 className={`${styles.title}`}>Life-to-List</h1>
-      <AddListForm addNewList={addNewList} />
-      <Lists
-        addNewItemToList={addNewItemToList}
-        completeItem={completeItem}
-        deleteItem={deleteItem}
-        expandList={expandList}
-        filter={filter}
-        lists={lists}
-        openListMenu={openListMenu}
-        sort={sort}
-        />
-        <ListMenuModal
-          deleteList={deleteList}
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <title>Life-to-List</title>
+      </Head>
+      <main className={`${styles.main}`}>
+        <h1 className={`${styles.title}`}>Life-to-List</h1>
+        <AddListForm addNewList={addNewList} />
+        <Lists
+          addNewItemToList={addNewItemToList}
+          completeItem={completeItem}
+          deleteItem={deleteItem}
+          expandList={expandList}
           filter={filter}
-          handleChangeParam={handleChangeParam}
-          openedListMenu={openedListMenu}
-          closeListMenu={closeListMenu}
+          lists={lists}
+          openListMenu={openListMenu}
           sort={sort}
-        />
-    </main>
+          />
+          <ListMenuModal
+            deleteList={deleteList}
+            filter={filter}
+            handleChangeParam={handleChangeParam}
+            openedListMenu={openedListMenu}
+            closeListMenu={closeListMenu}
+            sort={sort}
+          />
+      </main>
+    </>
   );
 };
 

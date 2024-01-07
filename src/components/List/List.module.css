@@ -23,6 +23,9 @@
 }
 
 .listOpenMenuButton {
+  border: none;
+  flex-shrink: 0;
+  background: transparent;
   margin-left: auto;
   width: 20px;
   height: 20px;
@@ -88,10 +91,20 @@
 }
 
 .addItemFormIconSubmit {
+  border: none;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: transparent;
   background: url(/icons/add.svg) transparent no-repeat;
 }
 
 .addItemFormIconCancel {
+  border: none;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: transparent;
   background: url(/icons/cross.svg) transparent no-repeat;
 }
 
