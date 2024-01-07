@@ -1,0 +1,8 @@
+export const CREATE_LIST = 'CREATE_LIST';
+export const EXPAND_LIST = 'EXPAND_LIST';
+export const DELETE_LIST = 'DELETE_LIST';
+export const CREATE_ITEM_IN_LIST = 'CREATE_ITEM_IN_LIST';
+export const COMPLETE_ITEM = 'COMPLETE_ITEM';
+export const DELETE_ITEM = 'DELETE_ITEM';
+export const OPEN_LIST_MENU = 'OPEN_LIST_MENU';
+export const CLOSE_LIST_MENU = 'CLOSE_LIST_MENU';

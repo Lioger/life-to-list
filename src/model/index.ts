@@ -1,3 +1,8 @@
+export interface IAction {
+  type: string,
+  payload: any,
+}
+
 export interface IItem {
   id: string,
   title: String,

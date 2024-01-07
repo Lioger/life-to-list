@@ -100,6 +100,7 @@ export default () => {
             filter={filter}
             handleChangeParam={handleChangeParam}
             openedListMenu={openedListMenu}
+            closeListMenu={closeListMenu}
             sort={sort}
           />
       </main>
